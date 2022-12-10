@@ -123,21 +123,22 @@ p {
   padding: 5px;
 }
 
-#productvideo {
-  background-color: var(--brand-color);
-  height: auto;
-  padding: 200px 40px 150px 40px;
-  margin: 0 auto;
-  position: relative;
+.home-page {
+  background-color: var(--black-bg-color);
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  align-items: center;
+  height: auto;
+  justify-content: center;
 
 }
 
-#productvdo {
+.a {
+  margin-top: 10rem;
+}
+
+#product {
   height: auto;
-  padding: 200px 40px 150px 40px;
+  padding: 150px 40px 150px 40px;
   margin: 0 auto;
   position: relative;
   display: flex;
