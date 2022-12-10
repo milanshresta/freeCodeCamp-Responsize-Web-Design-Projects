@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elixir Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header id="header-page">
+        <h1>Elixir Documentation</h1>
+    </header>
+
+    <div id="container">
+        <div>
+            <nav id="navbar">
+                <header>
+                    <h4>
+                        On this page:
+                    </h4>
+                </header>
+
+                <ul>
+                    <a href="#Introduction" class="nav-link">
+                        <li>Introduction</li>
+                    </a>
+
+                    <a href="#basic_types" class="nav-link">
+                        <li>Basic types</li>
+                    </a>
+
+                    <a href="#basic_operators" class="nav-link">
+                        <li>Basic operators</li>
+                    </a>
+
+                    <a href="#Pattern_matching" class="nav-link">
+                        <li>Pattern matching</li>
+                    </a>
+
+                    <a href="#case_cond_and_if" class="nav-link">
+                        <li>Case Cond and if</li>
+                    </a>
+
+                    <a href="#Binaries_strings_and_charlists" class="nav-link">
+                        <li>Binaries strings and charlists</li>
+                    </a>
+
+                    <a href="#Keyword_lists_and_maps" class="nav-link">
+                        <li>Keyword lists and maps</li>
+                    </a>
+
+                    <a href="#Modules_and_Functions" class="nav-link">
+                        <li>Modules and Functions</li>
+                    </a>
+
+                    <a href="#Recursion" class="nav-link">
+                        <li>Recursion</li>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+
+        <main id="main-doc">
+            <article>
+
+                <section class="main-section" id="Introduction">
+                    <header>
+                        <h2>Introduction</h2>
+                    </header>
+                    <p>
+                        In this tutorial, we are going to teach you about Elixir fundamentals - the language syntax, how
+                        to define modules, how to manipulate the characteristics of common data structures, and more.
+                        This chapter will focus on ensuring that Elixir is installed and that you can successfully run
+                        Elixir’s Interactive Shell, called IEx.
+                    </p>
+
+                    <div class="note">
+                        <h5>Installation</h5>
+                        <p>
+                            <a href="https://elixir-lang.org/install.html#windowsL" target="blank">
+                                Windows</a>
+                            <a href="https://elixir-lang.org/install.html#macos" target="blank">
+                                macOS</a>
+                            <a href="https://elixir-lang.org/install.html#gnulinux" target="blank">
+                                GNU/Linux</a>
+                        </p>
+                    </div>
+                </section>
+
+                <section class="main-section" id="basic_types">
+                    <header>
+                        <h2>Basic types</h2>
+                    </header>
+                    <p>
+                        In this chapter we will learn more about Elixir basic types:
+                        <ul>
+                            <li>integers,</li>
+                            <li>floats,</li>
+                            <li>booleans</li>
+                            <li>atoms,</li>
+                            <li>strings,</li>
+                        </ul>
+                         lists and tuples. Some basic types are:
+                    </p>
+                    <div class="line-code">
+                        <span>
+                            iex> 1 # integer<br>
+                            iex> 0x1F # integer<br>
+                            iex> 1.0 # float<br>
+                            iex> true # boolean<br>
+                            iex> :atom # atom / symbol<br>
+                            iex> "elixir" # string<br>
+                            iex> [1, 2, 3] # list<br>
+                            iex> {1, 2, 3} # tuple
+                        </span>
+                    </div>
+                </section>
+
+                <section class="main-section" id="basic_operators">
+                    <header>
+                        <h2>Basic operators</h2>
+                    </header>
+                    <p>
+                        In the previous chapter, we saw Elixir provides +, -, *, / as arithmetic operators, plus the
+                        functions div/2 and rem/2 for integer division and remainder.
+
+                        Elixir also provides ++ and -- to manipulate lists:
+                    </p>
+
+                    <div class="line-code"><code><span>
+                            iex> [1, 2, 3] ++ [4, 5, 6]<br>
+                            [1, 2, 3, 4, 5, 6]<br>
+                            iex> [1, 2, 3] -- [2]<br>
+                            [1, 3]
+                        </span></code>
+                    </div>
+
+                </section>
+
+                <section class="main-section" id="Pattern_matching">
+                    <header>
+                        <h2>Pattern matching</h2>
+                    </header>
+
+                    <p>
+                        In this chapter, we will show how the = operator in Elixir is actually a match operator and how
+                        to use it to pattern match inside data structures. Finally, we will learn about the pin operator
+                        ^ used to access previously bound values.
+                    </p>
+                    <h3>
+                        The match operator
+                    </h3>
+
+                    <p>
+                        We have used the = operator a couple times to assign variables in Elixir:
+                    </p>
+
+                    <div class="line-code"><span>
+                            iex> x = 1<br>
+                            1<br>
+                            iex> 1 = x<br>
+                            1<br>
+                            iex> 2 = x<br>
+                            ** (MatchError) no match of right hand side value: 1
+                        </span>
+                    </div>
+
+                    <p>Notice that 1 = x is a valid expression, and it matched because both the left and right side are
+                        equal to 1. When the sides do not match, a MatchError is raised.<br>A variable can only be
+                        assigned on the left side of =:</p>
+
+                    <div class="line-code"><span>
+                            iex> 1 = unknown<br>
+                            ** (CompileError) iex:1: undefined function unknown/0
+                        </span>
+                    </div>
+                    <h3>
+                        Pattern matching
+                    </h3>
+                    <p>The match operator is not only used to match against simple values, but it is also useful for
+                        destructuring more complex data types. For example, we can pattern match on tuples:</p>
+
+                    <div class="line-code"><span>
+                            iex> {a, b, c} = {:hello, "world", 42}<br>
+                            {:hello, "world", 42}<br>
+                            iex> a<br>
+                            :hello<br>
+                            iex> b<br>
+                            "world"
+                        </span>
+                    </div>
+                </section>
+
+                <section class="main-section" id="case_cond_and_if">
+                    <header>
+                        <h2>Case Cond and if</h2>
+                    </header>
+
+                    <p>
+                        In this chapter, we will learn about the case, cond, and if control flow structures.
+                    </p>
+
+                    <h3>Case</h3>
+                    <p>
+                        case allows us to compare a value against many patterns until we find a matching one:
+                    </p>
+
+                    <div class="line-code"><span>
+                            iex> case {1, 2, 3} do<br>
+                            ...> {4, 5, 6} -><br>
+                            ...> "This clause won't match"<br>
+                            ...> {1, x, 3} -><br>
+                            ...> "This clause will match and bind x to 2 in this clause"<br>
+                            ...> _ -><br>
+                            ...> "This clause would match any value"<br>
+                            ...> end<br>
+                            "This clause will match and bind x to 2 in this clause"
+                        </span>
+                    </div>
+
+                    <h3>Cond</h3>
+                    <p>
+                        case is useful when you need to match against different values. However, in many circumstances,
+                        we want to check different conditions and find the first one that does not evaluate to nil or
+                        false. In such cases, one may use cond:
+                    </p>
+
+                    <div class="line-code"><span>
+                            iex> cond do<br>
+                            ...> 2 + 2 == 5 -><br>
+                            ...> "This will not be true"<br>
+                            ...> 2 * 2 == 3 -><br>
+                            ...> "Nor this"<br>
+                            ...> 1 + 1 == 2 -><br>
+                            ...> "But this will"<br>
+                            ...> end<br>
+                            "But this will"
+                        </span>
+                    </div>
+
+                    <h3>if and unless</h3>
+                    <p>
+                        Besides case and cond, Elixir also provides if/2 and unless/2, which are useful when you need to
+                        check for only one condition:
+                    </p>
+
+                    <div class="line-code"><span>
+                            iex> if true do<br>
+                            ...> "This works!"<br>
+                            ...> end<br>
+                            "This works!"<br>
+                            iex> unless true do<br>
+                            ...> "This will never be seen"<br>
+                            ...> end<br>
+                            nil
+                        </span>
+                    </div>
+                </section>
+
+                <section class="main-section" id="Binaries_strings_and_charlists">
+                    <header>
+                        <h2>Binaries strings and charlists</h2>
+                    </header>
+
+                    <p>
+                        In “Basic types”, we learned a little bit about strings and we used the is_binary/1 function for
+                        checks:
+                    </p>
+
+                    <div class="line-code"><code><span>
+                            iex> string = "hello"<br>
+                            "hello"<br>
+                            iex> is_binary(string)<br>
+                            true
+                        </span></code>
+                    </div>
+
+                    <p>
+                        In this chapter, we will gain clarity on what exactly binaries are, how they relate to strings,
+                        and what single-quoted values, 'like this', mean in Elixir. Although strings are one of the most
+                        common data types in computer languages, they are subtly complex and are often misunderstood. To
+                        understand strings in Elixir, we have to educate ourselves about Unicode and character
+                        encodings, specifically the UTF-8 encoding.
+                    </p>
+
+                </section>
+
+                <section class="main-section" id="Keyword_lists_and_maps">
+                    <header>
+                        <h2>Keyword lists and maps</h2>
+                    </header>
+
+                    <p>
+                        Now let’s talk about associative data structures. Associative data structures are able to
+                        associate a key to a certain value. Different languages call these different names like
+                        dictionaries, hashes, associative arrays, etc.
+                        <br>
+                        In Elixir, we have two main associative data structures: keyword lists and maps. It’s time to
+                        learn more about them!
+                    </p>
+
+                    <h3>Keyword lists</h3>
+                    <p>Keyword lists are a data-structure used to pass options to functions. Imagine you want to split a
+                        string of numbers. We can use String.split/2:</p>
+
+                    <div class="line-code"><code><span>
+                            iex> String.split("1 2 3", " ")<br>
+                            ["1", "2", "3"]
+                        </span></code>
+                    </div>
+
+                </section>
+
+                <section class="main-section" id="Modules_and_Functions">
+                    <header>
+                        <h2>Modules and Functions</h2>
+                    </header>
+
+                    <p>
+                        In Elixir we group several functions into modules. We’ve already used many different modules in
+                        the previous chapters such as the String module:
+                    </p>
+                    <div class="line-code"><code><span>
+                            iex> String.length("hello")<br>
+                            5
+                        </span></code>
+                    </div>
+                    <p>In order to create our own modules in Elixir, we use the defmodule macro. The first letter of the
+                        module must be in uppercase. We use the def macro to define functions in that module. The first
+                        letter of every function must be in lowercase (or underscore):</p>
+                    <div class="line-code"><code><span>
+                            iex> defmodule Math do<br>
+                            ...> def sum(a, b) do<br>
+                            ...> a + b<br>
+                            ...> end<br>
+                            ...> end<br><br>
+
+                            iex> Math.sum(1, 2)<br>
+                            3
+                        </span></code>
+                    </div>
+                </section>
+
+                <section class="main-section" id="Recursion">
+                    <header>
+                        <h2>Recursion</h2>
+                    </header>
+                    <p>Loops through recursion<br>
+                        Reduce and map algorithms</p>
+
+                    <h3>Loops through recursion</h3>
+                    <p>Due to immutability, loops in Elixir (as in any functional programming language) are written
+                        differently from imperative languages. For example, in an imperative language like C, one would
+                        write:</p>
+                </section>
+
+            </article>
+
+        </main>
+    </div>
+</body>
+
+</html>

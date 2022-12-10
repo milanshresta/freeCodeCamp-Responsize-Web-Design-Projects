@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    font-family: "Montserrat";
+}
+
+.background-img {
+    overflow: hidden;
+}
+
+#bg-img {
+    width: 100%;
+    filter: brightness(.4);
+    height: auto;
+}
+
+#name-label,
+#email-label,
+#number-label,
+#dropdown-menu {
+    display: block;
+    content: " ";
+    padding-bottom: 30px;
+}
+
+span {
+    font-weight: 500;
+}
+
+h1,
+p {
+    color: #fff;
+}
+
+.headline {
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.body-section {
+    background: transparent;
+    width: 100%;
+    position: absolute;
+    top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-div {
+    background: #eeeeee;
+    width: 500px;
+    border-radius: 5px;
+    height: 800px;
+}
+
+#survey-form {
+    padding: 50px;
+}
+
+#name,
+#email,
+#number,
+#dropdown {
+    width: 100%;
+    height: 30px;
+    border: 1px #838383 solid;
+    background: #F8F8F8;
+    border-radius: 5px;
+    margin-top: .5rem;
+    outline: none;
+    padding-left: .3rem;
+}
+
+#name:hover {
+    border: 2px #93E0FE solid;
+}
+
+#textarea {
+    max-width: 100%;
+    max-height: 150px;
+}
+
+#submit {
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
+
+#submit:hover {
+    background: #2A2A2A;
+}
+
+.form-items {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}

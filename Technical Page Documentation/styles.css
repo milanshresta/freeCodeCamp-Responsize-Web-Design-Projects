@@ -1,0 +1,246 @@
+:root {
+    /* Color Variables*/
+    --clr-grey1: rgb(250, 250, 255);
+    --clr-bg1: rgb(255, 255, 255);
+    --clr-bg3: rgb(28, 45, 59);
+    --clr-white1: rgba(255, 255, 255, 0.04);
+    --clr-white2: rgba(0, 60, 255, 0.08);
+    --clr-white3: rgba(54, 54, 54, 0.9);
+    --clr-white4: rgba(48, 48, 48, 0.6);
+    --clr-green1: rgba(163, 206, 158, 1);
+    --clr-red1: rgba(238, 106, 114, 1);
+    --clr-purple1: rgba(204, 158, 204, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10px;
+    background-color: var(--clr-grey1);
+    color: var(--clr-white3);
+    scroll-behavior: smooth;
+}
+
+a {
+    color: var(--clr-bg3);
+    text-decoration: none;
+}
+
+#container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 25% 70%;
+    grid-column-gap: 5%;
+    margin: auto;
+}
+
+h1 {
+    font-size: 10rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+
+#header-page {
+    background-color: var(--clr-bg1);
+    padding: 5rem 0;
+    margin-bottom: 8rem;
+    border-radius: 0 0 1.4rem 1.4rem;
+}
+
+nav {
+    background-color: var(--clr-white1);
+    border-radius: 0.4rem;
+    padding: 2.4rem 0;
+    margin: 3rem 0;
+    position: sticky;
+    top: 8rem;
+}
+
+nav h4 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--clr-white4);
+    padding: 0 0 2.4rem 2.4rem;
+}
+
+nav li {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    list-style: none;
+    padding: 0.7rem 2.4rem;
+    border-left: solid 0.2rem transparent;
+}
+
+nav li:hover {
+    background-color: var(--clr-white1);
+    border-left: solid 0.2rem var(--clr-blue2);
+}
+
+article section {
+    padding: 3rem 0 0 .8rem;
+    margin: 7rem 2rem 0 0;
+    border-top: solid 0.2rem var(--clr-white2);
+    max-width: 100%;
+}
+
+article section:first-of-type {
+    padding: 3rem 0 0 .8rem;
+    margin-top: 0;
+    border-top: none;
+}
+
+article h2 {
+    font-size: 4rem;
+    margin-bottom: 2.4rem;
+}
+
+article h3 {
+    font-size: 2rem;
+    margin-bottom: -1.5rem;
+    margin-top: 7rem;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+article b {
+    font-weight: 600;
+}
+
+article code {
+    font-family: monospace;
+    font-size: 1.7rem;
+    background-color: var(--clr-white2);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+article p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    font-weight: 300;
+    margin: 3rem 0;
+    max-width: 65rem;
+}
+
+article ul {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-left: 4rem;
+}
+
+article li {
+    margin-bottom: 1.5rem;
+}
+
+.note {
+    background-color: var(--clr-white2);
+    border-left: 0.4rem solid var(--clr-orange1);
+    padding: 1.5rem 3rem 3rem 3rem;
+    margin: 3rem 0;
+    border-radius: .2rem;
+    max-width: 100%;
+}
+
+.note h5 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--clr-white4);
+    margin-bottom: 1.1rem;
+}
+
+.note p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+main {
+    max-width: 100%;
+}
+
+article {
+    max-width: 100%;
+}
+
+.line-code {
+    background-color: var(--clr-white2);
+    font-family: monospace;
+    line-height: 1.4;
+    border-left: 0.4rem solid var(--clr-blue2);
+    padding: 1.1rem 3rem;
+    margin: 3rem 0;
+    border-radius: .2rem;
+    max-width: 100%;
+    font-size: 1.6rem;
+}
+
+.line-code .class {
+    color: var(--clr-red1);
+}
+
+.line-code .property {
+    color: var(--clr-green1)
+}
+
+.line-code .value {
+    color: var(--clr-purple1)
+}
+
+.line-code .space {
+    margin-left: 3rem;
+}
+
+img {
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+footer {
+    height: 4rem;
+    margin-top: 10rem;
+}
+
+@media only screen and (max-width: 800px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    #container {
+        grid-template-columns: 94%;
+        justify-content: center;
+    }
+
+    nav {
+        display: none;
+    }
+
+    article section {
+        margin: 7rem 0;
+    }
+
+    h1 {
+        font-size: 7rem;
+        max-width: 94%;
+        margin-left: 0;
+    }
+
+    #header-page {
+        background-color: var(--clr-bg1);
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+        border-radius: 0 0 1.4rem 1.4rem;
+    }
+
+}
